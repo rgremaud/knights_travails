@@ -32,16 +32,17 @@ export function knightMoves(start, end) {
     // set a track for all visited notes
     const visited = [];
 
-    // determine all possible moves
-    const posMoves = possibleMoves(start);
-
     // set array for moves made
     const visitedLocations = [];
 
     // set start position
     let position = start;
 
-    // test which moves are possible;
+    // determine all possible moves
+    const posMoves = possibleMoves(start);
+
+    // build a queue based on possible moves
+    const queue = buildQueue(position, posMoves);
 
     const answer = [[0,0],[2,1],[3,3]]
     return answer
@@ -57,4 +58,16 @@ export function possibleMoves(start) {
                                         move[1] + start[1] > 0 && move[1] + start[1] <= 7 );
 
     return posMoves;
+}
+
+export function buildQueue(currentPos, array) { 
+    // take input array of all possible moves
+    const queue = [];
+
+    array.forEach((move) => {
+        const location = [move[0] + currentPos[0], move[1] + currentPos[1]]
+        queue.push(location);
+    })
+
+    return queue;
 }
