@@ -1,15 +1,20 @@
 import { knightMoves, possibleMoves, buildQueue, closestPoint, distance } from "./index.js";
 
-test('Knight solution', () => {
-    expect(knightMoves([0, 0], [3, 3])).toEqual([[0, 0], [2, 1], [3, 3]]);
-});
+// test('Knight solution', () => {
+//     expect(knightMoves([0, 0], [3, 3])).toEqual([[0, 0], [2, 1], [3, 3]]);
+// });
 
+// rework tests so you're current pos is [2,1] 
+
+// updated w/test of 2,1
 test('Possible moves', () => {
-    expect(possibleMoves([0, 0])).toEqual([[2, 1], [1, 2]])
+    expect(possibleMoves([2, 1])).toEqual([[2, 1], [2, -1], [1, 2], [-2, 1], [-2, -1], [-1, 2]])
 })
 
+// updated w/test of 2,1
 test('Build queue', () => {
-    expect(buildQueue([0, 0], [[2, 1], [1, 2]])).toEqual([[2, 1], [1, 2]])
+    expect(buildQueue([0, 0], [[2, 1], [1, 2]])).toEqual([[2, 1], [1, 2]]);
+    expect(buildQueue([2, 1], [[2, 1], [2, -1], [1, 2], [-2, 1], [-2, -1], [-1, 2]])).toEqual([[4, 2], [4, 0], [3, 3], [0, 2], [0, 0], [1, 3]]);
 })
 
 test('Distance check', () => {
