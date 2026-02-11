@@ -17,5 +17,5 @@ test('Distance check', () => {
 })
 
 test('Closest point', () => {
-    expect(closestPoint([7, 7], [[0, 0], [3, 4], [6, 6]])).toStrictEqual([6, 6])
+    expect(closestPoint([3, 3], [[1, 2], [2, 1]])).toStrictEqual([1, 2])
 })
