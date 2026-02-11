@@ -9,21 +9,15 @@ export function knightMoves(start, end) {
     let posMoves = possibleMoves(position);
     let queue = buildQueue(position, posMoves);
 
-    if (queue.includes(end)) {
-      position = end;
-      traversal.push(position);
-    } else {
-      // determine next position and store value by finding closest position
-      // returns a single coordinate
-      let nextPos = closestPoint(end, queue);
-      console.log("Current pos" + position);
-      console.log("next position" + nextPos);
-      // add value to traversal
-      traversal.push(nextPos);
+    // determine next position and store value by finding closest position
+    // returns a single coordinate
+    let nextPos = closestPoint(end, queue);
 
-      // update current position to nextPos
-      position = nextPos;
-    }
+    // add value to traversal
+    traversal.push(nextPos);
+
+    // update current position to nextPos
+    position = nextPos;
   }
 
   return traversal;
@@ -92,6 +86,3 @@ export function distance(pos1, pos2) {
 
   return Math.abs(distance);
 }
-
-const test = buildQueue([2, 1], [[2, 1], [2, -1], [1, 2], [-2, 1], [-2, -1], [-1, 2]])
-console.log(test)
