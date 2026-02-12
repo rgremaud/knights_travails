@@ -1,22 +1,41 @@
+/*
+New process:
+
+define possible moves
+
+check that position is valid on the board
+
+set up a queue of nodes to visit
+and a list of visited arrays
+
+while queue is not empty
+pop out the first coordinate and explore all 8 possible knight moves
+if move is a valid move and cell has not been visited yet then check if you are at target cell
+otherwise mark the cell as visited and push it to the queue for further exploration
+
+*/
+
+
 export function knightMoves(start, end) {
   // set initial values
   const traversal = [start];
   let position = start;
 
-  // build a loop until position === end
-  while (position !== end) {
-    // determine all possible moves and build queue
-    let posMoves = possibleMoves(position);
-    let queue = buildQueue(position, posMoves);
+  let posMoves = possibleMoves(position);
+  let queue = buildQueue(position, posMoves);
 
-    // determine next position and store value by finding closest position
-    // returns a single coordinate
-    let nextPos = closestPoint(end, queue);
+  let nextPos = closestPoint(end, queue);
 
-    // add value to traversal
+  traversal.push(nextPos);
+
+  // try loop here?
+  while (position[0] !== end[0] && position[1] !== end[1]) {
+    position = nextPos;
+    posMoves = possibleMoves(position);
+    queue = buildQueue(position, posMoves);
+    nextPos = closestPoint(end, queue)
     traversal.push(nextPos);
 
-    // update current position to nextPos
     position = nextPos;
   }
 
@@ -86,3 +105,6 @@ export function distance(pos1, pos2) {
 
   return Math.abs(distance);
 }
+
+const test = knightMoves([0, 0], [7, 7])
+console.log(test);
