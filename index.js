@@ -90,31 +90,5 @@ export function buildQueue(currentPos, movesArray) {
   return queue;
 }
 
-export function closestPoint(targetPos, queue) {
-  // take queue, and target position and which queue location is closest to targetPos
-  // distance between two points:
-  // d = square root (x2 - x1)^2 + (y2 - y1)^2
-  let newPos = queue[0];
 
-  queue.forEach((location) => {
-    // calculate distance between location and target
-    const locDistance = distance(location, targetPos);
-    // if distance is shorter than current newPos then reassign newPos to shorter distance
-    if (locDistance < distance(newPos, targetPos)) {
-      newPos = location;
-    }
-  });
 
-  return newPos;
-}
-
-export function distance(pos1, pos2) {
-  const distance = Math.sqrt(
-    (pos2[0] - pos1[0]) ** 2 + (pos2[1] - pos1[1]) ** 2,
-  );
-
-  return Math.abs(distance);
-}
-
-const test = knightMoves([0, 0], [7, 7])
-console.log(test);
