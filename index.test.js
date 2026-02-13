@@ -1,4 +1,4 @@
-import { knightMoves, possibleMoves, buildQueue, closestPoint, distance } from "./index.js";
+import { knightMoves, possibleMoves, buildQueue, closestPoint, distance, knightMovesNew } from "./index.js";
 
 test('Knight solution', () => {
     expect(knightMoves([0, 0], [3, 3])).toStrictEqual([[0, 0], [2, 1], [3, 3]]);

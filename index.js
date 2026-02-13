@@ -1,7 +1,13 @@
 /*
 New process:
+Start: 0, 0
+End: 5, 5
 
-define possible moves
+possible moves: [2, 1] [2, -1] [1, 2] [1, -2] [-2, 1] [-2, -1] [-1, 2] [-1, -2]
+visited: [0, 0] [2, 1] [1, 2] || [4, 2] [4, 0] [3, 3] [0, 2] [1, 3] 
+
+1st move: [2, 1] [1, 2]
+2nd moves: [4, 2] [4, 0] [3, 3] [0, 2] [1, 3] || [3, 1] [2, 4] []
 
 check that position is valid on the board
 
@@ -14,6 +20,10 @@ if move is a valid move and cell has not been visited yet then check if you are 
 otherwise mark the cell as visited and push it to the queue for further exploration
 
 */
+
+// export function knightMovesNew(start, end) {
+
+// }
 
 
 export function knightMoves(start, end) {
