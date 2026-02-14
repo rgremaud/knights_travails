@@ -61,5 +61,8 @@ export function knightMoves(start, end) {
     temp = temp.previous;
   }
 
-  return moves, traversal;
+  console.log("You made it in " + moves + " moves!  Here is your path:");
+  traversal.reverse().forEach((move) => {
+    console.log(move)
+  })
 }
