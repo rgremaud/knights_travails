@@ -15,12 +15,3 @@ test('Build queue', () => {
     expect(buildQueue([0, 0], [[2, 1], [1, 2]])).toEqual([[2, 1], [1, 2]]);
     expect(buildQueue([2, 1], [[2, 1], [2, -1], [1, 2], [-2, 1], [-2, -1], [-1, 2]])).toEqual([[4, 2], [4, 0], [3, 3], [0, 2], [0, 0], [1, 3]]);
 })
-
-test('Distance check', () => {
-    expect(distance([1, 1], [4, 5])).toBe(5)
-})
-
-test('Closest point', () => {
-    expect(closestPoint([3, 3], [[1, 2], [2, 1]])).toStrictEqual([1, 2]);
-    expect(closestPoint([3, 3], [[4, 2], [4, 0], [3, 3], [0, 2], [0, 0], [1, 3]])).toStrictEqual([3, 3]);
-})

@@ -21,9 +21,24 @@ otherwise mark the cell as visited and push it to the queue for further explorat
 
 */
 
-// export function knightMovesNew(start, end) {
+class Coordinate {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
 
-// }
+export function knightMovesNew(start, end) {
+  // define possible moves
+
+  const movesX = [2, 2, 1, 1, -1, -1, -2, -2];
+  const movesY = [1, -1, 2, -1, 2, -2, 1, -1];
+  // define queue
+
+  const queue = [];
+
+
+}
 
 
 export function knightMoves(start, end) {
