@@ -9,7 +9,7 @@ export function shortestPath(start, end) {
   const queue = [];
 
   // add starting position to queue
-  queue.push(new Coordinate(start[0], start[1], 0))
+  queue.push(new Coordinate(start[0], start[1], 0));
 
   // set temporary variables for traversal
   let temp;
@@ -21,7 +21,7 @@ export function shortestPath(start, end) {
   visited[start[0]][start[1]] = true;
 
   // loop locations until queue is empty
-  while ( queue.length > 0 ) { 
+  while (queue.length > 0) {
     // pop first item from queue
     temp = queue.shift();
 
@@ -31,14 +31,14 @@ export function shortestPath(start, end) {
     }
 
     // explore all reachable locations
-    for ( let i = 0; i <= 7; i++) {
+    for (let i = 0; i <= 7; i++) {
       x = temp.x + moveX[i];
       y = temp.y + moveY[i];
 
       // test if coordinate is on board and not visited
       if (validMove(x, y) && !visited[x][y]) {
         visited[x][y] = true;
-        queue.push( new Coordinate(x, y, temp.moves + 1, temp) )
+        queue.push(new Coordinate(x, y, temp.moves + 1, temp));
       }
     }
   }
@@ -52,17 +52,18 @@ function validMove(x, y) {
 export function knightMoves(start, end) {
   const path = shortestPath(start, end);
   const moves = path.moves;
-  const traversal = []
+  const traversal = [];
 
   let temp = path;
 
-  while ( temp !== null ) {
+  while (temp !== null) {
     traversal.push([temp.x, temp.y]);
     temp = temp.previous;
   }
 
-  console.log("You made it in " + moves + " moves!  Here is your path:");
-  traversal.reverse().forEach((move) => {
-    console.log(move)
-  })
+  return [moves, traversal];
+  //   console.log("You made it in " + moves + " moves!  Here is your path:");
+  //   traversal.reverse().forEach((move) => {
+  //     console.log(move)
+  //   })
 }
